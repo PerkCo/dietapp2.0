@@ -31,7 +31,6 @@ class MainWindow(QMainWindow):
         meal_page = QWidget()
         meal_page.setLayout(meal_page_layout)
 
-
         self.stackwidget = QStackedWidget()
         self.stackwidget.addWidget(menu_page)
         self.stackwidget.addWidget(info_page)
@@ -40,6 +39,18 @@ class MainWindow(QMainWindow):
         self.stackwidget.setCurrentIndex(0)
         self.stackwidget.setLayout(layout)
         self.setCentralWidget(self.stackwidget)
+
+    # Menu Page Widgets
+
+        menu_title = QLabel("Loren Epsin")
+        menu_title.setAlignment(Qt.AlignCenter)
+        menu_page_layout.addWidget(menu_title)
+
+        menu_to_info_btn = QPushButton()
+        menu_page_layout.addWidget(menu_to_info_btn)
+
+        menu_to_meal_btn = QPushButton()
+        menu_page_layout.addWidget(menu_to_meal_btn)
 
 app = QApplication()
 
