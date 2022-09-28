@@ -1,0 +1,41 @@
+{
+    "base": [
+        {
+            "name": "test",
+            "kcal": 100,
+            "protien": 200,
+            "carb": 300,
+            "fat": 400
+        },
+        {
+
+        }
+    ],
+    "meat": [
+        {
+            "name": "test",
+            "kcal": 100,
+            "protien": 200,
+            "carb": 300,
+            "fat": 400
+        }
+    ],
+    "vitamin": [
+        {
+            "name": "test",
+            "kcal": 100,
+            "protien": 200,
+            "carb": 300,
+            "fat": 400
+        }
+    ],
+    "seasoning": [
+        {
+            "name": "test",
+            "kcal": 100,
+            "protien": 200,
+            "carb": 300,
+            "fat": 400
+        }
+    ]
+}
