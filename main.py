@@ -83,6 +83,59 @@ manwey is hot""")
         info_to_menu_btn.pressed.connect(self.info_to_menu)
         info_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
+    # Meal Planning Page Widgets
+
+        meal_title = QLabel("Loren Ipsen")
+        meal_title.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(meal_title)
+        meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
+        # Combo Box's + Labels For Selecting Ingredients
+
+        base_label = QLabel("Base:")
+        base_label.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(base_label)
+
+        base_input = QComboBox()
+        base_input.addItems(["Item 1", "Item 2"])
+        meal_page_layout.addWidget(base_input)
+
+        meat_label = QLabel("Meat:")
+        meat_label.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(meat_label)
+
+        meat_input = QComboBox()
+        meat_input.addItems(["Item 1", "Item 2"])
+        meal_page_layout.addWidget(meat_input)
+
+        vitamin_label = QLabel("Vitamin:")
+        vitamin_label.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(vitamin_label)
+
+        vitamin_input = QComboBox()
+        vitamin_input.addItems(["Item 1", "Item 2"])
+        meal_page_layout.addWidget(vitamin_input)
+
+        seasoning_label = QLabel("Seasoning:")
+        seasoning_label.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(seasoning_label)
+
+        seasoning_input= QComboBox()
+        seasoning_input.addItems(["Item 1", "Item 2"])
+        meal_page_layout.addWidget(seasoning_input)
+
+    # Button to calculate inputs coresponding macro nutrients
+
+        calculate_meal = QPushButton("Calculate!")
+        meal_page_layout.addWidget(calculate_meal)
+    
+    # Button to return to menu page
+
+        meal_to_menu_btn = QPushButton("Back to menu")
+        meal_page_layout.addWidget(meal_to_menu_btn)
+        meal_to_menu_btn.pressed.connect(self.meal_to_menu)
+
+
     # Functions for switching stackwidgets (pages)
 
     def menu_to_info(self):
@@ -92,6 +145,9 @@ manwey is hot""")
         self.stackwidget.setCurrentIndex(2)
 
     def info_to_menu(self):
+        self.stackwidget.setCurrentIndex(0)
+
+    def meal_to_menu(self):
         self.stackwidget.setCurrentIndex(0)
 
 app = QApplication()
