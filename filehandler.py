@@ -13,13 +13,13 @@ class FileHandler:
 
             return data
 
-        def list_of_foods(self) -> list[Food]:
-            data = self.get_json_foods()
-            food_data = {}
-            for category in data:
-                food_data[category] = {}
-                for food in data[category]:
-                    food_data[category][food["name"]] = Food(food["name"], food["kcal"], food["protien"],
-                                                            food["fat"], food["carb"], category)
+    def list_of_foods(self) -> list[Food]:
+        data = self.get_json_foods()
+        food_data = {}
+        for category in data:
+            food_data[category] = {}
+            for food in data[category]:
+                food_data[category][food["name"]] = Food(food["name"], food["kcal"], food["protien"],
+                                                        food["fat"], food["carb"], category)
                 
-                return food_data
+            return food_data
