@@ -28,6 +28,7 @@ class MainWindow(QMainWindow):
 
         meal_page_layout = QGridLayout()
         meal_page_layout.setRowStretch(0, 2)
+        meal_page_layout.setColumnStretch(1, 2-7)
 
         menu_page = QWidget()
         menu_page.setLayout(menu_page_layout)
