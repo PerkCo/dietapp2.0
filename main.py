@@ -132,15 +132,16 @@ manwey is hot""")
     # Right hand side widgets displaying Macro Nutriets of selected inputs
 
         meal_macros = QLabel("Loren Ipsen")
-        meal_page_layout.addWidget(meal_macros)
+        meal_macros.setAlignment(Qt.AlignCenter)
+        meal_page_layout.addWidget(meal_macros, 1, 1)
     
         cation_message = QLabel("Testing")
-        meal_page_layout.addWidget(cation_message)
+        meal_page_layout.addWidget(cation_message, 8, 1)
 
     # Button to return to menu page
 
         meal_to_menu_btn = QPushButton("Back to menu")
-        meal_page_layout.addWidget(meal_to_menu_btn)
+        meal_page_layout.addWidget(meal_to_menu_btn, 9, 1)
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
 
 
