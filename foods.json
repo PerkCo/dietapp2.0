@@ -3,19 +3,16 @@
         {
             "name": "test",
             "kcal": 100,
-            "protien": 200,
+            "protein": 200,
             "carb": 300,
             "fat": 400
-        },
-        {
-
         }
     ],
     "meat": [
         {
             "name": "test",
             "kcal": 100,
-            "protien": 200,
+            "protein": 200,
             "carb": 300,
             "fat": 400
         }
@@ -24,7 +21,7 @@
         {
             "name": "test",
             "kcal": 100,
-            "protien": 200,
+            "protein": 200,
             "carb": 300,
             "fat": 400
         }
@@ -33,7 +30,7 @@
         {
             "name": "test",
             "kcal": 100,
-            "protien": 200,
+            "protein": 200,
             "carb": 300,
             "fat": 400
         }

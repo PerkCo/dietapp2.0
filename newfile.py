@@ -1,4 +1,4 @@
-from filehandler import Filehandler
+from filehandler import FileHandler
 
 food = FileHandler().list_of_foods()
-print(foods)
+print(food)
