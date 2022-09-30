@@ -75,11 +75,39 @@
     ],
     "vitamin": [
         {
-            "name": "test",
-            "kcal": 100,
-            "protein": 200,
-            "carb": 300,
-            "fat": 400
+            "name": "Lettuce",
+            "kcal": 15,
+            "protein": 1.4,
+            "carb": 2.9,
+            "fat": 0.2
+        },
+        {
+            "name": "Green Peas",
+            "kcal": 81,
+            "protein": 5,
+            "carb": 14,
+            "fat": 0.4
+        },
+        {
+            "name": "Mushrooms",
+            "kcal": 22,
+            "protein": 3.1,
+            "carb": 3.3,
+            "fat": 0.3
+        },
+        {
+            "name": "Spinach",
+            "kcal": 23,
+            "protein": 2.9,
+            "carb": 3.6,
+            "fat": 0.4
+        },
+        {
+            "name": "Carrot",
+            "kcal": 25,
+            "protein": 0.5,
+            "carb": 6,
+            "fat": 0.2
         }
     ],
     "seasoning": [
