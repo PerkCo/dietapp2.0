@@ -10,7 +10,7 @@ from filehandler import FileHandler
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setWindowTitle("Diet App")
+        self.setWindowTitle("Meal Maker")
         self.filehandler = FileHandler()
         self.comboboxes = {}
         self.foods = self.filehandler.list_of_foods()
@@ -65,7 +65,7 @@ class MainWindow(QMainWindow):
 
     # Menu Page Widgets
 
-        menu_title = QLabel("Loren Epsin")
+        menu_title = QLabel("Meal Maker")
         menu_title.setAlignment(Qt.AlignCenter)
         menu_page_layout.addWidget(menu_title, 0, 0, 1, 2)
         menu_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -82,14 +82,22 @@ class MainWindow(QMainWindow):
 
     # Infomation Page Widgets
 
-        info_title = QLabel("Loren Epsin")
+        info_title = QLabel("Information")
         info_title.setAlignment(Qt.AlignCenter)
         info_page_layout.addWidget(info_title, 0, 0)
         info_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
-        info_content = QLabel("""Loren Epsin 
-omml
-manwey is hot""")
+        info_content = QLabel("""Meal Maker is an application designed to help you with your weight loss journey. Our serves
+provides an easy to use meal planner custom made by your own inputs based on your
+personal tastes. Helping you to track and understand your calorie intake while providing you
+tasty meals to kepp you motivated and enjoy your weight loss journey.
+
+What will Meal Maker do?
+
+After you have selected your preferred ingredients from the selection, in each category,
+click calculate to have the macro nutrient values of the meal printed on the right side
+of the screen!
+""")
         info_content.setAlignment(Qt.AlignCenter)
         info_page_layout.addWidget(info_content, 1, 0)
         info_content.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
@@ -101,7 +109,7 @@ manwey is hot""")
 
     # Meal Planning Page Widgets
 
-        meal_title = QLabel("Loren Ipsen")
+        meal_title = QLabel("Meal Planner")
         meal_title.setAlignment(Qt.AlignCenter)
         meal_page_layout_title.addWidget(meal_title)
         meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
