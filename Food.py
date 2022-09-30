@@ -5,7 +5,7 @@ from unicodedata import category
 class Food:
     name: str
     kcal: float
-    protien: float
+    protein: float
     fat: float
     carb: float
     category: str

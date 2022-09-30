@@ -1,5 +1,7 @@
 from cmath import inf
 from distutils.command.install_egg_info import to_filename
+from math import comb
+# from nis import cat
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
@@ -101,37 +103,66 @@ manwey is hot""")
 
         meal_title = QLabel("Loren Ipsen")
         meal_title.setAlignment(Qt.AlignCenter)
-        meal_page_layout_left.addWidget(meal_title)
+        meal_page_layout_title.addWidget(meal_title)
         meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # Combo Box's + Labels For Selecting Ingredients
 
         for category in self.foods:
             food_category = QLabel(category)
-            meal_page_layout.addWidget(food_category)
+            meal_page_layout_left.addWidget(food_category)
             food_selection = QComboBox()
             food_selection.addItems(list(self.foods[category].keys()))
-            meal_page_layout.addWidget(food_selection)
+            meal_page_layout_left.addWidget(food_selection)
             self.comboboxes[category] = food_selection
-
+        
     # Button to calculate inputs coresponding macro nutrients
 
         calculate_meal = QPushButton("Calculate!")
-        meal_page_layout.addWidget(calculate_meal, 9, 0)
+        meal_page_layout_left.addWidget(calculate_meal)
+        calculate_meal.pressed.connect(self.calculate)
 
     # Right hand side widgets displaying Macro Nutriets of selected inputs
 
-        meal_macros = QLabel("Loren Ipsen")
-        meal_macros.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(meal_macros, 1, 1)
+        final_meal = QLabel("Ingredients of Meal:")
+        meal_page_layout_right.addWidget(final_meal)
+
+        self.selected_meat = QLabel("Meat:")
+        meal_page_layout_right.addWidget(self.selected_meat)
+
+        self.selected_vitamin = QLabel("Vitamin:")
+        meal_page_layout_right.addWidget(self.selected_vitamin)
+
+        self.selected_seasoning = QLabel("Seasoning:")
+        meal_page_layout_right.addWidget(self.selected_seasoning)
+
+        self.selected_base = QLabel("Base:")
+        meal_page_layout_right.addWidget(self.selected_base)
+
+        meal_page_layout_right.addStretch(1)
+
+        self.final_macros = QLabel("Macro Nutrients of Meal:")
+        meal_page_layout_right.addWidget(self.final_macros)
+
+        self.final_kcal = QLabel("Kcal:")
+        meal_page_layout_right.addWidget(self.final_kcal)
+
+        self.final_protein = QLabel("Protein:")
+        meal_page_layout_right.addWidget(self.final_protein)
+
+        self.final_fat = QLabel("Kcal:")
+        meal_page_layout_right.addWidget(self.final_fat)
+
+        self.final_carb = QLabel("Kcal:")
+        meal_page_layout_right.addWidget(self.final_carb)
     
         cation_message = QLabel("Testing")
-        meal_page_layout.addWidget(cation_message, 8, 1)
+        meal_page_layout_right.addWidget(cation_message)
 
     # Button to return to menu page
 
         meal_to_menu_btn = QPushButton("Back to menu")
-        meal_page_layout.addWidget(meal_to_menu_btn, 9, 1)
+        meal_page_layout_right.addWidget(meal_to_menu_btn)
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
 
 
@@ -148,6 +179,43 @@ manwey is hot""")
 
     def meal_to_menu(self):
         self.stackwidget.setCurrentIndex(0)
+
+    # Fucntion to calucalte macro nutrients of selected foods!!!
+
+    def calculate(self):
+        food_selected = []
+        for category in self.comboboxes:
+            combo_box = self.comboboxes[category]
+            if combo_box.currentText() == "":
+                return
+            foods = self.foods[category][combo_box.currentText()]
+            food_selected.append(foods)
+
+            if foods.category == "meat":
+                self.selected_meat.setText(f"Meat: {foods.name}")
+            elif foods.category == "vitamin":
+                self.selected_vitamin.setText(f"Vitamin: {foods.name}")
+            elif foods.category == "seasoning":
+                self.selected_seasoning.setText(f"Seasoning: {foods.name}")
+            else:
+                self.selected_base.setText(f"Base: {foods.name}")
+
+            # Calculates the nutrition
+            kcal = 0
+            protein = 0
+            fat = 0
+            carb = 0
+
+            for foods in food_selected:
+                kcal += foods.kcal
+                protein += foods.protein
+                fat += foods.fat
+                carb += foods.carb
+
+            self.final_kcal.setText(f"kcal: {kcal}")
+            self.final_protein.setText(f"protein: {protein}")
+            self.final_fat.setText(f"fat: {fat}")
+            self.final_carb.setText(f"carb: {carb}")
 
 app = QApplication()
 
