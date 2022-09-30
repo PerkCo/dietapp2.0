@@ -18,6 +18,6 @@ class FileHandler:
             food_data[category] = {}
             for food in data[category]:
                 food_data[category][food["name"]] = Food(food["name"], food["kcal"], food["protein"], food["fat"],
-                                                         food["carb"], category)
+                                                        food["carb"], category)
 
         return food_data

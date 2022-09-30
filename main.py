@@ -200,7 +200,7 @@ manwey is hot""")
             else:
                 self.selected_base.setText(f"Base: {foods.name}")
 
-            # Calculates the nutrition
+            # Calculates the macro nutriants
             kcal = 0
             protein = 0
             fat = 0
