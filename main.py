@@ -7,6 +7,8 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from filehandler import FileHandler
 
+# Creates a MainWindow class, thus GUI
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
@@ -15,7 +17,11 @@ class MainWindow(QMainWindow):
         self.comboboxes = {}
         self.foods = self.filehandler.list_of_foods()
 
+        # runs app_ui function
+
         self.app_ui()
+
+    # Fucntion containing all widgets and process displayed in GUI
 
     def app_ui(self):
 
@@ -24,6 +30,8 @@ class MainWindow(QMainWindow):
         # Set the central widget of the Window.
         self.setCentralWidget(widget)
         
+        # Layouts for each page
+
         layout = QVBoxLayout()
 
         menu_page_layout = QGridLayout()
@@ -225,9 +233,8 @@ of the screen!
             self.final_fat.setText(f"fat: {fat}")
             self.final_carb.setText(f"carb: {carb}")
 
-app = QApplication()
-
-window = MainWindow()
-window.show()
-
-app.exec()
+if __name__ == '__main__':
+    app = QApplication()
+    window = MainWindow()
+    window.show()
+    app.exec()
