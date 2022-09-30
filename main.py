@@ -3,12 +3,19 @@ from distutils.command.install_egg_info import to_filename
 from PySide6.QtWidgets import *
 from PySide6.QtCore import *
 from PySide6.QtGui import *
+from filehandler import FileHandler
 
 class MainWindow(QMainWindow):
     def __init__(self):
-        super().__init__() 
-
+        super(MainWindow, self).__init__()
         self.setWindowTitle("Diet App")
+        self.filehandler = FileHandler()
+        self.comboboxes = {}
+        self.foods = self.filehandler.list_of_foods()
+
+        self.app_ui()
+
+    def app_ui(self):
 
         widget = QWidget()
 
@@ -93,37 +100,45 @@ manwey is hot""")
 
         # Combo Box's + Labels For Selecting Ingredients
 
-        base_label = QLabel("Base:")
-        base_label.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(base_label, 1, 0)
+        # base_label = QLabel("Base:")
+        # base_label.setAlignment(Qt.AlignCenter)
+        # meal_page_layout.addWidget(base_label, 1, 0)
 
-        base_input = QComboBox()
-        base_input.addItems(["Item 1", "Item 2"])
-        meal_page_layout.addWidget(base_input, 2, 0)
+        # base_input = QComboBox()
+        # base_input.addItems(["Item 1", "Item 2"])
+        # meal_page_layout.addWidget(base_input, 2, 0)
 
-        meat_label = QLabel("Meat:")
-        meat_label.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(meat_label, 3, 0)
+        # meat_label = QLabel("Meat:")
+        # meat_label.setAlignment(Qt.AlignCenter)
+        # meal_page_layout.addWidget(meat_label, 3, 0)
 
-        meat_input = QComboBox()
-        meat_input.addItems(["Item 1", "Item 2"])
-        meal_page_layout.addWidget(meat_input, 4, 0)
+        # meat_input = QComboBox()
+        # meat_input.addItems(["Item 1", "Item 2"])
+        # meal_page_layout.addWidget(meat_input, 4, 0)
 
-        vitamin_label = QLabel("Vitamin:")
-        vitamin_label.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(vitamin_label, 5, 0)
+        # vitamin_label = QLabel("Vitamin:")
+        # vitamin_label.setAlignment(Qt.AlignCenter)
+        # meal_page_layout.addWidget(vitamin_label, 5, 0)
 
-        vitamin_input = QComboBox()
-        vitamin_input.addItems(["Item 1", "Item 2"])
-        meal_page_layout.addWidget(vitamin_input, 6, 0)
+        # vitamin_input = QComboBox()
+        # vitamin_input.addItems(["Item 1", "Item 2"])
+        # meal_page_layout.addWidget(vitamin_input, 6, 0)
 
-        seasoning_label = QLabel("Seasoning:")
-        seasoning_label.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(seasoning_label, 7, 0)
+        # seasoning_label = QLabel("Seasoning:")
+        # seasoning_label.setAlignment(Qt.AlignCenter)
+        # meal_page_layout.addWidget(seasoning_label, 7, 0)
 
-        seasoning_input= QComboBox()
-        seasoning_input.addItems(["Item 1", "Item 2"])
-        meal_page_layout.addWidget(seasoning_input, 8, 0)
+        # seasoning_input= QComboBox()
+        # seasoning_input.addItems(["Item 1", "Item 2"])
+        # meal_page_layout.addWidget(seasoning_input, 8, 0)
+
+        for category in self.foods:
+            food_category = QLabel(category)
+            meal_page_layout.addWidget(food_category)
+            food_selection = QComboBox()
+            food_selection.addItems(list(self.foods[category].keys()))
+            meal_page_layout.addWidget(food_selection)
+            self.comboboxes[category] = food_selection
 
     # Button to calculate inputs coresponding macro nutrients
 
