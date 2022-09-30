@@ -33,9 +33,15 @@ class MainWindow(QMainWindow):
         info_page_layout.setRowStretch(1, 2)
         info_page_layout.setRowStretch(2, 1)
 
-        meal_page_layout = QGridLayout()
-        meal_page_layout.setRowStretch(0, 2)
-        meal_page_layout.setColumnStretch(1, 2-7)
+        meal_page_layout = QVBoxLayout()
+        meal_page_layout_title = QHBoxLayout()
+        meal_page_layout_bottom = QHBoxLayout()
+        meal_page_layout.addLayout(meal_page_layout_title)
+        meal_page_layout.addLayout(meal_page_layout_bottom)
+        meal_page_layout_left = QVBoxLayout()
+        meal_page_layout_right = QVBoxLayout()
+        meal_page_layout_bottom.addLayout(meal_page_layout_left)
+        meal_page_layout_bottom.addLayout(meal_page_layout_right)
 
         menu_page = QWidget()
         menu_page.setLayout(menu_page_layout)
@@ -95,42 +101,10 @@ manwey is hot""")
 
         meal_title = QLabel("Loren Ipsen")
         meal_title.setAlignment(Qt.AlignCenter)
-        meal_page_layout.addWidget(meal_title, 0, 0, 1, 2)
+        meal_page_layout_left.addWidget(meal_title)
         meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
         # Combo Box's + Labels For Selecting Ingredients
-
-        # base_label = QLabel("Base:")
-        # base_label.setAlignment(Qt.AlignCenter)
-        # meal_page_layout.addWidget(base_label, 1, 0)
-
-        # base_input = QComboBox()
-        # base_input.addItems(["Item 1", "Item 2"])
-        # meal_page_layout.addWidget(base_input, 2, 0)
-
-        # meat_label = QLabel("Meat:")
-        # meat_label.setAlignment(Qt.AlignCenter)
-        # meal_page_layout.addWidget(meat_label, 3, 0)
-
-        # meat_input = QComboBox()
-        # meat_input.addItems(["Item 1", "Item 2"])
-        # meal_page_layout.addWidget(meat_input, 4, 0)
-
-        # vitamin_label = QLabel("Vitamin:")
-        # vitamin_label.setAlignment(Qt.AlignCenter)
-        # meal_page_layout.addWidget(vitamin_label, 5, 0)
-
-        # vitamin_input = QComboBox()
-        # vitamin_input.addItems(["Item 1", "Item 2"])
-        # meal_page_layout.addWidget(vitamin_input, 6, 0)
-
-        # seasoning_label = QLabel("Seasoning:")
-        # seasoning_label.setAlignment(Qt.AlignCenter)
-        # meal_page_layout.addWidget(seasoning_label, 7, 0)
-
-        # seasoning_input= QComboBox()
-        # seasoning_input.addItems(["Item 1", "Item 2"])
-        # meal_page_layout.addWidget(seasoning_input, 8, 0)
 
         for category in self.foods:
             food_category = QLabel(category)
