@@ -7,6 +7,7 @@ from PySide6.QtCore import *
 from PySide6.QtGui import *
 from filehandler import FileHandler
 
+
 # Creates a MainWindow class, thus GUI
 
 class MainWindow(QMainWindow):
@@ -20,6 +21,13 @@ class MainWindow(QMainWindow):
         # runs app_ui function
 
         self.app_ui()
+
+        file_path = "stylesheet.qss"
+        file = open(file_path)
+    
+        style = file.read()
+        self.setStyleSheet(style)
+        file.close()
 
     # Fucntion containing all widgets and process displayed in GUI
 
@@ -67,6 +75,8 @@ class MainWindow(QMainWindow):
         self.stackwidget.addWidget(info_page)
         self.stackwidget.addWidget(meal_page)
 
+        menu_page.setObjectName("MenuPage")
+
         self.stackwidget.setCurrentIndex(0)
         self.stackwidget.setLayout(layout)
         self.setCentralWidget(self.stackwidget)
@@ -77,16 +87,19 @@ class MainWindow(QMainWindow):
         menu_title.setAlignment(Qt.AlignCenter)
         menu_page_layout.addWidget(menu_title, 0, 0, 1, 2)
         menu_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_title.setObjectName("MenuTitle")
 
         menu_to_info_btn = QPushButton("Information")
         menu_page_layout.addWidget(menu_to_info_btn, 1, 0)
         menu_to_info_btn.pressed.connect(self.menu_to_info)
         menu_to_info_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_to_info_btn.setObjectName("MenuBtn")
 
         menu_to_meal_btn = QPushButton("Meal Planner")
         menu_page_layout.addWidget(menu_to_meal_btn, 1, 1)
         menu_to_meal_btn.pressed.connect(self.menu_to_meal)
         menu_to_meal_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_to_meal_btn.setObjectName("MenuBtn")
 
     # Infomation Page Widgets
 
@@ -180,7 +193,6 @@ of the screen!
         meal_to_menu_btn = QPushButton("Back to menu")
         meal_page_layout_right.addWidget(meal_to_menu_btn)
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
-
 
     # Functions for switching stackwidgets (pages)
 

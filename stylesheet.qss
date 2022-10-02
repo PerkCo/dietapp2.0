@@ -1,0 +1,18 @@
+#MenuTitle {
+    background-color: #6511e2;
+    color: mintcream;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#MenuPage {
+    background-color: #6511e2;
+}
+
+#MenuBtn {
+    background-color: #ebebeb;
+    border: 3px #8b54df;
+    border-style: solid;
+    border-radius: 12px;
+    font-size: 14px;
+}
