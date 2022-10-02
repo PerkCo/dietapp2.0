@@ -76,6 +76,8 @@ class MainWindow(QMainWindow):
         self.stackwidget.addWidget(meal_page)
 
         menu_page.setObjectName("MenuPage")
+        info_page.setObjectName("InfoPage")
+        meal_page.setObjectName("MealPage")
 
         self.stackwidget.setCurrentIndex(0)
         self.stackwidget.setLayout(layout)
@@ -87,18 +89,21 @@ class MainWindow(QMainWindow):
         menu_title.setAlignment(Qt.AlignCenter)
         menu_page_layout.addWidget(menu_title, 0, 0, 1, 2)
         menu_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_title.setMinimumHeight(300)
         menu_title.setObjectName("MenuTitle")
 
         menu_to_info_btn = QPushButton("Information")
         menu_page_layout.addWidget(menu_to_info_btn, 1, 0)
         menu_to_info_btn.pressed.connect(self.menu_to_info)
         menu_to_info_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_to_info_btn.setMinimumHeight(120)
         menu_to_info_btn.setObjectName("MenuBtn")
 
         menu_to_meal_btn = QPushButton("Meal Planner")
         menu_page_layout.addWidget(menu_to_meal_btn, 1, 1)
         menu_to_meal_btn.pressed.connect(self.menu_to_meal)
         menu_to_meal_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        menu_to_meal_btn.setMinimumHeight(120)
         menu_to_meal_btn.setObjectName("MenuBtn")
 
     # Infomation Page Widgets
@@ -107,6 +112,8 @@ class MainWindow(QMainWindow):
         info_title.setAlignment(Qt.AlignCenter)
         info_page_layout.addWidget(info_title, 0, 0)
         info_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        info_title.setMaximumHeight(100)
+        info_title.setObjectName("InfoTitle")
 
         info_content = QLabel("""Meal Maker is an application designed to help you with your weight loss journey. Our serves
 provides an easy to use meal planner custom made by your own inputs based on your
@@ -122,6 +129,7 @@ of the screen!
         info_content.setAlignment(Qt.AlignCenter)
         info_page_layout.addWidget(info_content, 1, 0)
         info_content.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        info_content.setObjectName("InfoContent")
 
         info_to_menu_btn = QPushButton("Back to menu")
         info_page_layout.addWidget(info_to_menu_btn, 2, 0)
@@ -133,7 +141,8 @@ of the screen!
         meal_title = QLabel("Meal Planner")
         meal_title.setAlignment(Qt.AlignCenter)
         meal_page_layout_title.addWidget(meal_title)
-        meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding,)
+        meal_title.setMaximumHeight(100)
 
         # Combo Box's + Labels For Selecting Ingredients
 
