@@ -249,10 +249,15 @@ of the screen!
                 fat += foods.fat
                 carb += foods.carb
 
-            self.final_kcal.setText(f"kcal: {kcal}")
-            self.final_protein.setText(f"protein: {protein}")
-            self.final_fat.setText(f"fat: {fat}")
-            self.final_carb.setText(f"carb: {carb}")
+                total_kcal = round(kcal, 1)
+                total_protein = round(protein, 1)
+                total_fat = round(fat, 1)
+                total_carb = round(carb, 1)
+
+            self.final_kcal.setText(f"kcal: {total_kcal}")
+            self.final_protein.setText(f"protein: {total_protein}")
+            self.final_fat.setText(f"fat: {total_fat}")
+            self.final_carb.setText(f"carb: {total_carb}")
 
 if __name__ == '__main__':
     app = QApplication()
