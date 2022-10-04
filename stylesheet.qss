@@ -10,7 +10,7 @@
     background-color: #6511e2;
 }
 
-#MenuBtn {
+#Btn {
     background-color: #ebebeb;
     border: 3px #8b54df;
     border-style: solid;
@@ -32,3 +32,4 @@
     color: mintcream;
     font-size: 16px;
 }
+

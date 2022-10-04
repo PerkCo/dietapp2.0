@@ -99,14 +99,14 @@ class MainWindow(QMainWindow):
         menu_to_info_btn.pressed.connect(self.menu_to_info)
         menu_to_info_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         menu_to_info_btn.setMinimumHeight(120)
-        menu_to_info_btn.setObjectName("MenuBtn")
+        menu_to_info_btn.setObjectName("Btn")
 
         menu_to_meal_btn = QPushButton("Meal Planner")
         menu_page_layout.addWidget(menu_to_meal_btn, 1, 1)
         menu_to_meal_btn.pressed.connect(self.menu_to_meal)
         menu_to_meal_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         menu_to_meal_btn.setMinimumHeight(120)
-        menu_to_meal_btn.setObjectName("MenuBtn")
+        menu_to_meal_btn.setObjectName("Btn")
 
     # Infomation Page Widgets
 
@@ -137,6 +137,8 @@ of the screen!
         info_page_layout.addWidget(info_to_menu_btn, 2, 0)
         info_to_menu_btn.pressed.connect(self.info_to_menu)
         info_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        info_to_menu_btn.setObjectName("Btn")
+
 
     # Meal Planning Page Widgets
 
@@ -199,6 +201,7 @@ of the screen!
         meal_page_layout_footer.addWidget(calculate_meal)
         calculate_meal.pressed.connect(self.calculate)
         calculate_meal.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        calculate_meal.setObjectName("Btn")
 
     # Button to return to menu page
 
@@ -206,6 +209,7 @@ of the screen!
         meal_page_layout_footer.addWidget(meal_to_menu_btn)
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
         meal_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        meal_to_menu_btn.setObjectName("Btn")
 
     # Functions for switching stackwidgets (pages)
 
