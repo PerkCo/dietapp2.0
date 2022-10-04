@@ -139,6 +139,7 @@ of the screen!
         info_to_menu_btn.pressed.connect(self.info_to_menu)
         info_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         info_to_menu_btn.setObjectName("Btn")
+        info_to_menu_btn.setMaximumHeight(135)
 
 
     # Meal Planning Page Widgets
@@ -228,7 +229,7 @@ of the screen!
         calculate_meal.pressed.connect(self.calculate)
         calculate_meal.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         calculate_meal.setObjectName("Btn")
-        calculate_meal.setMaximumHeight(150)
+        calculate_meal.setMaximumHeight(135)
 
     # Button to return to menu page
 
@@ -237,7 +238,7 @@ of the screen!
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
         meal_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         meal_to_menu_btn.setObjectName("Btn")
-        meal_to_menu_btn.setMaximumHeight(150)
+        meal_to_menu_btn.setMaximumHeight(135)
 
     # Functions for switching stackwidgets (pages)
 
