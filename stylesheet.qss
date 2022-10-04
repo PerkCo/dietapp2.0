@@ -33,3 +33,26 @@
     font-size: 16px;
 }
 
+#MealPage {
+    background-color: #6511e2;
+}
+
+#MealTitle {
+    color: mintcream;
+    font-size: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#MealRightWidget {
+    background-color: #8b54df;
+}
+
+#MacroDisplay {
+    color: mintcream;
+    font-size: 14px;
+}
+
+#CationMessage {
+    color: mintcream;
+    font-size: 10px;
+}

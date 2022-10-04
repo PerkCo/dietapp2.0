@@ -62,6 +62,7 @@ class MainWindow(QMainWindow):
         meal_page_layout_right = QVBoxLayout()
         meal_page_layout_bottom.addLayout(meal_page_layout_left)
         meal_page_layout_bottom.addLayout(meal_page_layout_right)
+        meal_page_layout_right_widget = QVBoxLayout()
 
         menu_page = QWidget()
         menu_page.setLayout(menu_page_layout)
@@ -147,6 +148,7 @@ of the screen!
         meal_page_layout_title.addWidget(meal_title)
         meal_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding,)
         meal_title.setMaximumHeight(100)
+        meal_title.setObjectName("MealTitle")
 
         # Combo Box's + Labels For Selecting Ingredients
 
@@ -158,42 +160,60 @@ of the screen!
             meal_page_layout_left.addWidget(food_selection)
             self.comboboxes[category] = food_selection
 
+    # Widget to right hand side to use as nest for macro nutrient widgets
+
+        meal_right_widget = QWidget()
+        meal_page_layout_right.addWidget(meal_right_widget)
+        meal_right_widget.setLayout(meal_page_layout_right_widget)
+        meal_right_widget.setObjectName("MealRightWidget")
+
     # Right hand side widgets displaying Macro Nutriets of selected inputs
 
         final_meal = QLabel("Ingredients of Meal:")
-        meal_page_layout_right.addWidget(final_meal)
+        meal_page_layout_right_widget.addWidget(final_meal)
+        final_meal.setObjectName("MacroDisplay")
 
         self.selected_meat = QLabel("Meat:")
-        meal_page_layout_right.addWidget(self.selected_meat)
+        meal_page_layout_right_widget.addWidget(self.selected_meat)
+        self.selected_meat.setObjectName('MacroDisplay')
 
         self.selected_vitamin = QLabel("Vitamin:")
-        meal_page_layout_right.addWidget(self.selected_vitamin)
+        meal_page_layout_right_widget.addWidget(self.selected_vitamin)
+        self.selected_vitamin.setObjectName("MacroDisplay")
 
         self.selected_seasoning = QLabel("Seasoning:")
-        meal_page_layout_right.addWidget(self.selected_seasoning)
+        meal_page_layout_right_widget.addWidget(self.selected_seasoning)
+        self.selected_seasoning.setObjectName("MacroDisplay")
 
         self.selected_base = QLabel("Base:")
-        meal_page_layout_right.addWidget(self.selected_base)
+        meal_page_layout_right_widget.addWidget(self.selected_base)
+        self.selected_base.setObjectName("MacroDisplay")
 
-        meal_page_layout_right.addStretch(1)
+        meal_page_layout_right_widget.addStretch(1)
 
         self.final_macros = QLabel("Macro Nutrients of Meal:")
-        meal_page_layout_right.addWidget(self.final_macros)
+        meal_page_layout_right_widget.addWidget(self.final_macros)
+        self.final_macros.setObjectName("MacroDisplay")
 
         self.final_kcal = QLabel("Kcal:")
-        meal_page_layout_right.addWidget(self.final_kcal)
+        meal_page_layout_right_widget.addWidget(self.final_kcal)
+        self.final_kcal.setObjectName("MacroDisplay")
 
         self.final_protein = QLabel("Protein:")
-        meal_page_layout_right.addWidget(self.final_protein)
+        meal_page_layout_right_widget.addWidget(self.final_protein)
+        self.final_protein.setObjectName("MacroDisplay")
 
         self.final_fat = QLabel("Kcal:")
-        meal_page_layout_right.addWidget(self.final_fat)
+        meal_page_layout_right_widget.addWidget(self.final_fat)
+        self.final_fat.setObjectName("MacroDisplay")
 
         self.final_carb = QLabel("Kcal:")
-        meal_page_layout_right.addWidget(self.final_carb)
-    
-        cation_message = QLabel("Testing")
-        meal_page_layout_right.addWidget(cation_message)
+        meal_page_layout_right_widget.addWidget(self.final_carb)
+        self.final_carb.setObjectName("MacroDisplay")
+
+        cation_message = QLabel("All Macro's are based off a serving size of 100g!")
+        meal_page_layout_right_widget.addWidget(cation_message)
+        cation_message.setObjectName("CationMessage")
 
  # Button to calculate inputs coresponding macro nutrients
 
