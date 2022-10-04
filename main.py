@@ -160,6 +160,7 @@ of the screen!
             food_selection.addItems(list(self.foods[category].keys()))
             meal_page_layout_left.addWidget(food_selection)
             self.comboboxes[category] = food_selection
+            food_selection.setObjectName("FoodSelection")
 
     # Widget to right hand side to use as nest for macro nutrient widgets
 
@@ -169,6 +170,8 @@ of the screen!
         meal_right_widget.setObjectName("MealRightWidget")
 
     # Right hand side widgets displaying Macro Nutriets of selected inputs
+
+        meal_page_layout_right_widget.addStretch(1)
 
         final_meal = QLabel("Ingredients of Meal:")
         meal_page_layout_right_widget.addWidget(final_meal)
@@ -216,6 +219,8 @@ of the screen!
         meal_page_layout_right_widget.addWidget(cation_message)
         cation_message.setObjectName("CationMessage")
 
+        meal_page_layout_right_widget.addStretch(1)
+
  # Button to calculate inputs coresponding macro nutrients
 
         calculate_meal = QPushButton("Calculate!")
@@ -223,6 +228,7 @@ of the screen!
         calculate_meal.pressed.connect(self.calculate)
         calculate_meal.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         calculate_meal.setObjectName("Btn")
+        calculate_meal.setMaximumHeight(150)
 
     # Button to return to menu page
 
@@ -231,6 +237,7 @@ of the screen!
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
         meal_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         meal_to_menu_btn.setObjectName("Btn")
+        meal_to_menu_btn.setMaximumHeight(150)
 
     # Functions for switching stackwidgets (pages)
 

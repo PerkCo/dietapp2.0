@@ -45,6 +45,9 @@
 
 #MealRightWidget {
     background-color: #8b54df;
+    border: 3px #8b54df;
+    border-style: solid;
+    border-radius: 25px;
 }
 
 #MacroDisplay {
@@ -59,5 +62,9 @@
 
 #FoodCategory {
     color: mintcream;
+    font-size: 18px;
+}
+
+#FoodSelection {
     font-size: 16px;
 }
