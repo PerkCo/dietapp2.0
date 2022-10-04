@@ -1,5 +1,5 @@
 {
-    "base": [
+    "Base": [
         {
             "name": "White rice",
             "kcal": 130,
@@ -36,7 +36,7 @@
             "fat": 0.1
         }
     ],
-    "meat": [
+    "Meat": [
         {
             "name": "Chicken breast",
             "kcal": 239,
@@ -73,7 +73,7 @@
             "fat": 3.3
         }
     ],
-    "vitamin": [
+    "Vitamin": [
         {
             "name": "Lettuce",
             "kcal": 15,
@@ -110,7 +110,7 @@
             "fat": 0.2
         }
     ],
-    "seasoning": [
+    "Seasoning": [
         {
             "name": "Plain (no seasoning)",
             "kcal": 0,

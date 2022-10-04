@@ -155,6 +155,7 @@ of the screen!
         for category in self.foods:
             food_category = QLabel(category)
             meal_page_layout_left.addWidget(food_category)
+            food_category.setObjectName("FoodCategory")
             food_selection = QComboBox()
             food_selection.addItems(list(self.foods[category].keys()))
             meal_page_layout_left.addWidget(food_selection)
@@ -256,11 +257,11 @@ of the screen!
             foods = self.foods[category][combo_box.currentText()]
             food_selected.append(foods)
 
-            if foods.category == "meat":
+            if foods.category == "Meat":
                 self.selected_meat.setText(f"Meat: {foods.name}")
-            elif foods.category == "vitamin":
+            elif foods.category == "Vitamin":
                 self.selected_vitamin.setText(f"Vitamin: {foods.name}")
-            elif foods.category == "seasoning":
+            elif foods.category == "Seasoning":
                 self.selected_seasoning.setText(f"Seasoning: {foods.name}")
             else:
                 self.selected_base.setText(f"Base: {foods.name}")
