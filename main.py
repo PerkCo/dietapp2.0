@@ -54,8 +54,10 @@ class MainWindow(QMainWindow):
         meal_page_layout = QVBoxLayout()
         meal_page_layout_title = QHBoxLayout()
         meal_page_layout_bottom = QHBoxLayout()
+        meal_page_layout_footer = QHBoxLayout()
         meal_page_layout.addLayout(meal_page_layout_title)
         meal_page_layout.addLayout(meal_page_layout_bottom)
+        meal_page_layout.addLayout(meal_page_layout_footer)
         meal_page_layout_left = QVBoxLayout()
         meal_page_layout_right = QVBoxLayout()
         meal_page_layout_bottom.addLayout(meal_page_layout_left)
@@ -153,12 +155,6 @@ of the screen!
             food_selection.addItems(list(self.foods[category].keys()))
             meal_page_layout_left.addWidget(food_selection)
             self.comboboxes[category] = food_selection
-        
-    # Button to calculate inputs coresponding macro nutrients
-
-        calculate_meal = QPushButton("Calculate!")
-        meal_page_layout_left.addWidget(calculate_meal)
-        calculate_meal.pressed.connect(self.calculate)
 
     # Right hand side widgets displaying Macro Nutriets of selected inputs
 
@@ -197,11 +193,19 @@ of the screen!
         cation_message = QLabel("Testing")
         meal_page_layout_right.addWidget(cation_message)
 
+ # Button to calculate inputs coresponding macro nutrients
+
+        calculate_meal = QPushButton("Calculate!")
+        meal_page_layout_footer.addWidget(calculate_meal)
+        calculate_meal.pressed.connect(self.calculate)
+        calculate_meal.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+
     # Button to return to menu page
 
         meal_to_menu_btn = QPushButton("Back to menu")
-        meal_page_layout_right.addWidget(meal_to_menu_btn)
+        meal_page_layout_footer.addWidget(meal_to_menu_btn)
         meal_to_menu_btn.pressed.connect(self.meal_to_menu)
+        meal_to_menu_btn.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
 
     # Functions for switching stackwidgets (pages)
 
