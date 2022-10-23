@@ -178,7 +178,7 @@ of the screen!
         meal_page_layout_right_widget.addWidget(final_meal)
         final_meal.setObjectName("MacroDisplay")
 
-        self.selected_meat = QLabel("Meat:")
+        self.selected_meat = QLabel("Protein:")
         meal_page_layout_right_widget.addWidget(self.selected_meat)
         self.selected_meat.setObjectName('MacroDisplay')
 
@@ -265,8 +265,8 @@ of the screen!
             foods = self.foods[category][combo_box.currentText()]
             food_selected.append(foods)
 
-            if foods.category == "Meat":
-                self.selected_meat.setText(f"Meat: {foods.name}")
+            if foods.category == "Protein":
+                self.selected_meat.setText(f"Protein: {foods.name}")
             elif foods.category == "Vitamin":
                 self.selected_vitamin.setText(f"Vitamin: {foods.name}")
             elif foods.category == "Seasoning":
