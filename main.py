@@ -208,11 +208,11 @@ of the screen!
         meal_page_layout_right_widget.addWidget(self.final_protein)
         self.final_protein.setObjectName("MacroDisplay")
 
-        self.final_fat = QLabel("Kcal:")
+        self.final_fat = QLabel("Fat:")
         meal_page_layout_right_widget.addWidget(self.final_fat)
         self.final_fat.setObjectName("MacroDisplay")
 
-        self.final_carb = QLabel("Kcal:")
+        self.final_carb = QLabel("Carb:")
         meal_page_layout_right_widget.addWidget(self.final_carb)
         self.final_carb.setObjectName("MacroDisplay")
 
