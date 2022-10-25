@@ -1,6 +1,6 @@
 from dataclasses import dataclass
-from unicodedata import category
 
+#Assings values (str, float) to each value for dictionarys in food.json
 @dataclass
 class Food:
     name: str

@@ -22,6 +22,8 @@ class MainWindow(QMainWindow):
 
         self.app_ui()
 
+        # links stylesheet to main, to apply styling from stylesheet.qss
+
         file_path = "stylesheet.qss"
         file = open(file_path)
     
@@ -43,14 +45,17 @@ class MainWindow(QMainWindow):
         layout = QVBoxLayout()
 
         menu_page_layout = QGridLayout()
+        #Set row stetch to format page to be centred title, and equal sized buttons
         menu_page_layout.setRowStretch(0, 2)
         menu_page_layout.setRowStretch(1, 1)
 
         info_page_layout = QGridLayout()
+        #Set row stetch to format page to be centred title, and equal sized buttons
         info_page_layout.setRowStretch(0, 1)
         info_page_layout.setRowStretch(1, 2)
         info_page_layout.setRowStretch(2, 1)
 
+        #Layout management of different layers for meal_page
         meal_page_layout = QVBoxLayout()
         meal_page_layout_title = QHBoxLayout()
         meal_page_layout_bottom = QHBoxLayout()
@@ -64,6 +69,7 @@ class MainWindow(QMainWindow):
         meal_page_layout_bottom.addLayout(meal_page_layout_right)
         meal_page_layout_right_widget = QVBoxLayout()
 
+        #Creates the base page widget containing parent layout from above
         menu_page = QWidget()
         menu_page.setLayout(menu_page_layout)
 
@@ -73,21 +79,25 @@ class MainWindow(QMainWindow):
         meal_page = QWidget()
         meal_page.setLayout(meal_page_layout)
 
+        #Creates a stackwidget consisting of each page as a there widget
         self.stackwidget = QStackedWidget()
         self.stackwidget.addWidget(menu_page)
         self.stackwidget.addWidget(info_page)
         self.stackwidget.addWidget(meal_page)
 
+        #Sets names which link to styling on stylesheet.qss
         menu_page.setObjectName("MenuPage")
         info_page.setObjectName("InfoPage")
         meal_page.setObjectName("MealPage")
 
+        #Sets the top widget to the menu/home page with outcome is run
         self.stackwidget.setCurrentIndex(0)
         self.stackwidget.setLayout(layout)
         self.setCentralWidget(self.stackwidget)
 
     # Menu Page Widgets
 
+        #creates, append and styles the title of menu page
         menu_title = QLabel("Meal Maker")
         menu_title.setAlignment(Qt.AlignCenter)
         menu_page_layout.addWidget(menu_title, 0, 0, 1, 2)
@@ -95,6 +105,7 @@ class MainWindow(QMainWindow):
         menu_title.setMinimumHeight(300)
         menu_title.setObjectName("MenuTitle")
 
+        #creates, styles and appends button, also links to menu_to_info function
         menu_to_info_btn = QPushButton("Information")
         menu_page_layout.addWidget(menu_to_info_btn, 1, 0)
         menu_to_info_btn.pressed.connect(self.menu_to_info)
@@ -102,6 +113,7 @@ class MainWindow(QMainWindow):
         menu_to_info_btn.setMinimumHeight(120)
         menu_to_info_btn.setObjectName("Btn")
 
+        #creates, styles and appends button, also links to menu_to_meal function
         menu_to_meal_btn = QPushButton("Meal Planner")
         menu_page_layout.addWidget(menu_to_meal_btn, 1, 1)
         menu_to_meal_btn.pressed.connect(self.menu_to_meal)
@@ -111,6 +123,7 @@ class MainWindow(QMainWindow):
 
     # Infomation Page Widgets
 
+        #creates, styles and appends infomation page title
         info_title = QLabel("Information")
         info_title.setAlignment(Qt.AlignCenter)
         info_page_layout.addWidget(info_title, 0, 0)
@@ -118,6 +131,7 @@ class MainWindow(QMainWindow):
         info_title.setMaximumHeight(100)
         info_title.setObjectName("InfoTitle")
 
+        #creates, styles and appends infomation page context
         info_content = QLabel("""Meal Maker is an application designed to help you with your weight loss journey. Our serves
 provides an easy to use meal planner custom made by your own inputs based on your
 personal tastes. Helping you to track and understand your calorie intake while providing you
@@ -134,6 +148,7 @@ of the screen!
         info_content.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
         info_content.setObjectName("InfoContent")
 
+         #creates, styles and appends button, also links to info_to_menu function
         info_to_menu_btn = QPushButton("Back to menu")
         info_page_layout.addWidget(info_to_menu_btn, 2, 0)
         info_to_menu_btn.pressed.connect(self.info_to_menu)
@@ -144,6 +159,7 @@ of the screen!
 
     # Meal Planning Page Widgets
 
+         #creats, styles and appends menu title Qlabel
         meal_title = QLabel("Meal Planner")
         meal_title.setAlignment(Qt.AlignCenter)
         meal_page_layout_title.addWidget(meal_title)
@@ -172,6 +188,7 @@ of the screen!
 
     # Right hand side widgets displaying Macro Nutriets of selected inputs
 
+        #Adds an automatic stretch to the top seperating and centre content when aspect radio in changed
         meal_page_layout_right_widget.addStretch(1)
 
         final_meal = QLabel("Ingredients of Meal:")
@@ -194,6 +211,7 @@ of the screen!
         meal_page_layout_right_widget.addWidget(self.selected_base)
         self.selected_base.setObjectName("MacroDisplay")
 
+        #Adds an automatic stretch to the centre to seperating and centre content when aspect radio in changed
         meal_page_layout_right_widget.addStretch(1)
 
         self.final_macros = QLabel("Macro Nutrients of Meal:")
@@ -220,6 +238,7 @@ of the screen!
         meal_page_layout_right_widget.addWidget(cation_message)
         cation_message.setObjectName("CationMessage")
 
+        #Adds an automatic stretch to the bottom seperating and centre content when aspect radio in changed
         meal_page_layout_right_widget.addStretch(1)
 
  # Button to calculate inputs coresponding macro nutrients
@@ -242,15 +261,19 @@ of the screen!
 
     # Functions for switching stackwidgets (pages)
 
+    #Changes current index of stack widget to display the infomation page widget, with had an index value of 1 in the stackwidget
     def menu_to_info(self):
         self.stackwidget.setCurrentIndex(1)
 
+    #Changes current index of Qstackwidget to display meal planning page widget
     def menu_to_meal(self):
         self.stackwidget.setCurrentIndex(2)
 
+    #Change current index of QStackWidget to display menu/home page widget
     def info_to_menu(self):
         self.stackwidget.setCurrentIndex(0)
 
+    #Change current index of QStackWidget to display menu/home page widget
     def meal_to_menu(self):
         self.stackwidget.setCurrentIndex(0)
 
@@ -265,6 +288,7 @@ of the screen!
             foods = self.foods[category][combo_box.currentText()]
             food_selected.append(foods)
 
+            #over rides text in selected_food Qlabels using values from dictonairy foods.json, appending the name str value to display
             if foods.category == "Protein":
                 self.selected_meat.setText(f"Protein: {foods.name}")
             elif foods.category == "Vitamin":
@@ -280,17 +304,20 @@ of the screen!
             fat = 0
             carb = 0
 
+            #Loops through the selected foods and adds the str values for each value in dictoinaries in foods.json
             for foods in food_selected:
                 kcal += foods.kcal
                 protein += foods.protein
                 fat += foods.fat
                 carb += foods.carb
 
+                #Creates a new veriable total_""" rounding the calucalted marconutrient values to 1 decimal place to avoid error with 0.1+0.2=0.300000004
                 total_kcal = round(kcal, 1)
                 total_protein = round(protein, 1)
                 total_fat = round(fat, 1)
                 total_carb = round(carb, 1)
 
+            #Changes str in final_""" thus displaying a rounded, calculated macronutrient value based of the inputs on planned meal
             self.final_kcal.setText(f"kcal: {total_kcal}")
             self.final_protein.setText(f"protein: {total_protein}")
             self.final_fat.setText(f"fat: {total_fat}")

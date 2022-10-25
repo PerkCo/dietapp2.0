@@ -11,8 +11,11 @@ class FileHandler:
 
         return data
 
+    #Creates function list_of_foods
     def list_of_foods(self):
+        #Creates variable data
         data = self.get_json_foods()
+        #Creases variable food_data 
         food_data = {}
         for category in data:
             food_data[category] = {}

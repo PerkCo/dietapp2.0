@@ -127,10 +127,10 @@
         },
         {
             "name": "Beef",
-            "kcal": 0,
-            "protein": 0,
-            "carb": 0,
-            "fat": 0
+            "kcal": 20,
+            "protein": 0.1,
+            "carb": 0.8,
+            "fat": 0.1
         },
         {
             "name": "Thai Green Curry",
