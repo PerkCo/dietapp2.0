@@ -4,12 +4,11 @@ from Food import Food
 
 
 class FileHandler:
-    @staticmethod
-    def get_json_foods():
-        with open("foods.json", "r") as file:
-            data = json.load(file)
+    def get_json_foods(self):
+        with open("foods.json") as f:
+            macronutrients = json.load(f)
 
-        return data
+        return macronutrients
 
     #Creates function list_of_foods
     def list_of_foods(self):
