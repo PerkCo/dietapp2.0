@@ -68,3 +68,7 @@
 #FoodSelection {
     font-size: 16px;
 }
+
+#SMessage {
+    color: red;
+}

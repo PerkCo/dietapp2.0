@@ -248,6 +248,10 @@ of the screen!
         self.serving_selection = QSpinBox()
         meal_page_layout_left.addWidget(self.serving_selection)
 
+        self.serving_message = QLabel("")
+        meal_page_layout_left.addWidget(self.serving_message)
+        self.serving_message.setObjectName("SMessage")
+
  # Button to calculate inputs coresponding macro nutrients
 
         calculate_meal = QPushButton("Calculate!")
@@ -316,6 +320,8 @@ of the screen!
 
                 if index == 3:
                     multiplier = self.serving_selection.value()
+                    if multiplier < 1 or multiplier > 3:
+                        self.serving_message.setText("Invalid Serving Size, Servings must be between 1-3")
                 else:
                     multiplier = 1
 
