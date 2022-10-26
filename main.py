@@ -241,6 +241,13 @@ of the screen!
         #Adds an automatic stretch to the bottom seperating and centre content when aspect radio in changed
         meal_page_layout_right_widget.addStretch(1)
 
+        seasoning_serving = QLabel("Select Seasoning Servings: ")
+        meal_page_layout_left.addWidget(seasoning_serving)
+        seasoning_serving.setObjectName("FoodCategory")
+
+        self.serving_selection = QSpinBox()
+        meal_page_layout_left.addWidget(self.serving_selection)
+
  # Button to calculate inputs coresponding macro nutrients
 
         calculate_meal = QPushButton("Calculate!")
@@ -305,11 +312,17 @@ of the screen!
             carb = 0
 
             #Loops through the selected foods and adds the str values for each value in dictoinaries in foods.json
-            for foods in food_selected:
-                kcal += foods.kcal
-                protein += foods.protein
-                fat += foods.fat
-                carb += foods.carb
+            for index, foods in enumerate(food_selected):
+
+                if index == 3:
+                    multiplier = self.serving_selection.value()
+                else:
+                    multiplier = 1
+
+                kcal += foods.kcal * multiplier
+                protein += foods.protein * multiplier
+                fat += foods.fat * multiplier
+                carb += foods.carb * multiplier
 
                 #Creates a new veriable total_""" rounding the calucalted marconutrient values to 1 decimal place to avoid error with 0.1+0.2=0.300000004
                 total_kcal = round(kcal, 1)
